@@ -7,6 +7,11 @@ const PORT = process.env.PORT || 8080;
 
 app.use(cors());
 
+// Define the root route
+app.get('/', (req, res) => {
+  res.send('Welcome to HappyTunes Backend!');
+});
+
 const songs = {
   happy: "https://www.youtube.com/watch?v=ZbZSe6N_BXs",
   sad: "https://www.youtube.com/watch?v=RgKAFK5djSk",
