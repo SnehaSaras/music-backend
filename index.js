@@ -1,7 +1,9 @@
 const express = require('express');
 const cors = require('cors');
 const app = express();
-const PORT = 5000;
+
+// Use the port from environment variable or default to 8080
+const PORT = process.env.PORT || 8080;
 
 app.use(cors());
 
@@ -24,3 +26,4 @@ app.get('/song/:mood', (req, res) => {
 app.listen(PORT, () => {
   console.log(`Backend running on http://localhost:${PORT}`);
 });
+s
