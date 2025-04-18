@@ -2,7 +2,7 @@ const express = require('express');
 const cors = require('cors');
 const app = express();
 
-// Use the port from environment variable or default to 8080
+// Use dynamic port (important for OpenShift)
 const PORT = process.env.PORT || 8080;
 
 app.use(cors());
@@ -23,6 +23,7 @@ app.get('/song/:mood', (req, res) => {
   }
 });
 
-app.listen(PORT, () => {
-  console.log(`Backend running on http://localhost:${PORT}`);
+// Listen on all network interfaces to work correctly in OpenShift
+app.listen(PORT, '0.0.0.0', () => {
+  console.log(`Backend running on http://0.0.0.0:${PORT}`);
 });
